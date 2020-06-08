@@ -40,4 +40,30 @@ router.post("/favoriteSelect", auth, (req, res) => {
 
 });
 
+
+
+router.post("/addToFavorite", auth, (req, res) => {
+
+    //Save the information (TV Show name or UserID) from the collection
+    
+
+    const favorite =  new Favorite(req.body)
+    favorite.save((err, doc) => {
+        if (err) return res.json({ success: false, err })
+        return res.status(200).json({ success: true })
+
+});
+});
+
+router.post("/removeFromFavorite", auth, (req, res) => {
+
+    //Save favorite show and delete
+    Favorite.findOneAndDelete({"tvShowID": req.body.tvShowID, "userFrom": req.body.userFrom})
+    .exec((err, doc) => {
+        if (err) return res.status(400).json({ success: false, err });
+        res.status(200).json({ success: true, doc })
+    })
+
+});
+
 module.exports = router;

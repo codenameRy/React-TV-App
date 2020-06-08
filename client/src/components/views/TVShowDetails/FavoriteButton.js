@@ -2,7 +2,7 @@ import React, {useEffect, useState } from 'react';
 import { Button } from "antd";
 import Axios from 'axios';
 
-function Favorite(props) {
+function FavoriteButton(props) {
 
     const [favoriteNumber, setfavoriteNumber] = useState(0)
     const [favoriteSelect, setfavoriteSelect] = useState(false)
@@ -39,14 +39,24 @@ function Favorite(props) {
     //Favorite button clicker to add or remove from Favorite List
     const onClickFavorite = () => {
         if(favoriteSelect) {
-            // When already added
+            // API call when already added
+            Axios.post('/api/favorite/removeFromFavorite', variable)
+            .then(response => {
+                if(response.data.success) {
+                    setfavoriteNumber(favoriteNumber - 1)
+                    setfavoriteSelect(!favoriteSelect)
+                } else {
+                     alert('Failed to remove from Favorite List')
+                }
+            })
 
         } else {
-            //When not adding
+            //API call when not adding
             Axios.post('/api/favorite/addToFavorite', variable)
             .then(response => {
                 if(response.data.success) {
-                    // setfavoriteSelect(response.data.favoriteSelect)
+                    setfavoriteNumber(favoriteNumber + 1)
+                    setfavoriteSelect(!favoriteSelect)
                 } else {
                      alert('Failed to add to Favorite List')
                 }
@@ -62,4 +72,4 @@ function Favorite(props) {
     )
 }
 
-export default Favorite
+export default FavoriteButton

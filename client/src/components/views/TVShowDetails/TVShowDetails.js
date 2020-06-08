@@ -2,7 +2,7 @@ import React, {useEffect, useState } from 'react';
 import Axios from 'axios';
 import MainImage from '../LandingPage/MainImage';
 import GridDesignShows from './GridDesignShows';
-import Favorite from './Favorite';
+import FavoriteButton from './FavoriteButton';
 import { Descriptions, Button, Row } from "antd";
 import { API_URL, API_KEY, IMAGE_BASE_URL, IMAGE_SIZE, CAST_IMAGE_SIZE} from '../../Config';
 
@@ -56,14 +56,13 @@ function TVShowDetails(props) {
         <div style={{ width: "85%", margin: "1rem auto" }}>
           <div style={{ display: "flex", justifyContent: "center" }}>
             {/* <FavoriteShows userFrom={localStorage.getItem('userId')} /> */}
-            <Favorite 
+            <FavoriteButton 
             userFrom={localStorage.getItem('userId')} 
             tvShowID={tvShowID}
             tvInfo={tvShows}
             />
 
           </div>
-
             {/* TV Show Details */}
             <Descriptions title='TV Show Details'  
             bordered
@@ -88,9 +87,9 @@ function TVShowDetails(props) {
       <div style={{ display: "flex", justifyContent: "center" }}>
             {/* <Button onClick={handleActorClick}>View Actors</Button> */}
             <Button onClick={handleActorClick}>View Actors</Button>
-            <br/>
+            
           </div>
-
+          <br/>
             {/* Grid Design TV Show Actors */}
 
               {ActorClick &&
