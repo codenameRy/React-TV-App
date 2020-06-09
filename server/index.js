@@ -59,9 +59,11 @@ app.use(function(req, res, next) {
 //   // Handle the get for this route
 // });
 
-// app.post('/', function(req, res, next) {
-//  // Handle the post for this route
-// });
+app.post('/api/favorite', function(req, res, next) {
+  res.send(
+    `I received your POST request. This is what you sent me: ${req.body.post}`,
+  );
+});
 
 app.use('/api/users', require('./routes/users'));
 app.use("/api/favorite", require("./routes/favorite"));
