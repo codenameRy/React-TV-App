@@ -11,7 +11,8 @@
     "start": "node server/index.js",
     "backend": "nodemon server/index.js",
     "frontend": "npm run start --prefix client",
-    "dev": "concurrently \"npm run backend\" \"npm run start --prefix client\""
+    "dev": "concurrently \"npm run backend\" \"npm run start --prefix client\"",
+    "prod": "npm run build && node ./config/copy-to-dist.js"
   },
   "author": "Ryan Lee",
   "license": "ISC",
