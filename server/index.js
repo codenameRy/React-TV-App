@@ -30,7 +30,7 @@ app.use(
     credentials: true,
     origin: [
       "http://localhost:3000",
-      "https://vigorous-carson-99c193.netlify.app/"
+      "https://vigorous-carson-99c193.netlify.app"
     ], //Swap this with the client url - Change to netlify in future
 
     //remove array and set to true - Alternative
