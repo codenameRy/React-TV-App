@@ -8,6 +8,7 @@ const favoriteSchema = mongoose.Schema({
     tvShowID: { type: String },
     tvShowName: { type: String },
     tvShowImage: { type: String },
+    tvShowHomepage: { type: String }
   });
   // { timestamps: true }
 

@@ -11,7 +11,8 @@ function FavoriteButton(props) {
         userFrom: props.userFrom,
         tvShowID: props.tvShowID,
         tvShowName: props.tvInfo.original_name,
-        tvShowImage: props.tvInfo.backdrop_path 
+        tvShowImage: props.tvInfo.backdrop_path,
+        tvShowHomepage: props.tvInfo.homepage
     }
 
     useEffect(() => {

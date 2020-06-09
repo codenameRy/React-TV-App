@@ -77,6 +77,8 @@ function TVShowDetails(props) {
         <Descriptions.Item label='Vote Count'>{tvShows.vote_count}</Descriptions.Item>
         <Descriptions.Item label='Status'>{tvShows.status}</Descriptions.Item>
         <Descriptions.Item label='Popularity'>{tvShows.popularity}</Descriptions.Item>
+        <Descriptions.Item label='Type'>{tvShows.type}</Descriptions.Item>
+        <Descriptions.Item label='Origin Country'>{tvShows.origin_country}</Descriptions.Item>
         {/* <Descriptions.Item label='Genres'>
             {tvShows.genres && tvShows.genres.map((type, index) => (
               <li key={index}>{type.genres}</li>

@@ -66,4 +66,15 @@ router.post("/removeFromFavorite", auth, (req, res) => {
 
 });
 
+router.post("/getFavoriteTVShow", auth, (req, res) => {
+
+    //Find all the TV shows the login users saved as favorite
+    Favorite.find({"userFrom": req.body.userFrom})
+    .exec((err, favorites) => {
+        if (err) return res.status(400).send(err);
+        return res.status(200).json({ success: true, favorites })
+    })
+
+});
+
 module.exports = router;

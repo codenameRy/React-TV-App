@@ -15,12 +15,12 @@ function LandingPage() {
     useEffect(() => {
       console.log("component did mount - Home Page");
       
-      {/*Declaration of API Endpoint and retrieveShows function*/}
+      // Declaration of API Endpoint and retrieveShows function
         const endPoint = `${API_URL}tv/popular?api_key=${API_KEY}&language=en-US&page=1`;
         retrieveShows(endPoint);
     }, [])
 
-  {/*API Call to TV Database to collect responses of all TV shows and page counts*/}
+  //API Call to TV Database to collect responses of all TV shows and page counts
     const retrieveShows = (path) => {
          Axios.get(path)
         .then(response => {
@@ -30,7 +30,7 @@ function LandingPage() {
         })
     }
 
-    {/*Load more button with handleClick function to populate additional pages of TV shows */}
+    //Load more button with handleClick function to populate additional pages of TV shows
     const handleClick = () => {
         let endPoint = `${API_URL}tv/popular?api_key=${API_KEY}&language=en-US&page=${tvCurrentPage + 1}`
         retrieveShows(endPoint)
