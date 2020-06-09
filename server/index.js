@@ -50,17 +50,17 @@ app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", 'https://vigorous-carson-99c193.netlify.app');
   res.header("Access-Control-Allow-Credentials", true);
   res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
-  res.header("Access-Control-Allow-Headers", 'Origin,X-Requested-With,Content-Type,Accept,content-type,application/json');
+  res.header("Access-Control-Allow-Headers", 'Origin,X-Requested-With,Content-Type,Accept');
   next();
 });
 
-app.get('/', function(req, res, next) {
-  // Handle the get for this route
-});
+// app.get('/', function(req, res, next) {
+//   // Handle the get for this route
+// });
 
-app.post('/', function(req, res, next) {
- // Handle the post for this route
-});
+// app.post('/', function(req, res, next) {
+//  // Handle the post for this route
+// });
 
 app.use('/api/users', require('./routes/users'));
 app.use("/api/favorite", require("./routes/favorite"));
