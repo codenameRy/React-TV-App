@@ -16,6 +16,7 @@ const config = require("./config/key");
 //   .catch(err => console.error(err));
 
 const mongoose = require("mongoose");
+console.log(config.mongoURI, "hello mongo check")
 const connect = mongoose.connect(config.mongoURI,
   {
     useNewUrlParser: true, useUnifiedTopology: true,
@@ -24,7 +25,18 @@ const connect = mongoose.connect(config.mongoURI,
   .then(() => console.log('MongoDB Connected to Atlas...'))
   .catch(err => console.log(err));
 
-app.use(cors())
+app.use(
+  cors({
+    credentials: true,
+    origin: [
+      "http://localhost:3000"
+      // "https://tv-digital.netlify.app/*",
+      // "http://tv-digital.netlify.app",
+    ], //Swap this with the client url - Change to netlify in future
+
+    //remove array and set to true - Alternative
+  })
+)
 
 //to not get any deprecation warning or error
 //support parsing of application/x-www-form-urlencoded post data
