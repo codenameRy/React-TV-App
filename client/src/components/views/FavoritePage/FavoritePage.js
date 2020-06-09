@@ -14,6 +14,12 @@ function FavoritePage(props) {
         const [FavoriteTVShows, setFavoriteTVShows] = useState([])
 
     useEffect(() => {
+
+        fetchTVShows()
+
+    }, [])
+
+    const fetchTVShows = () => {
         Axios.post('/api/favorite/getFavoriteTVShow', variable)
 
             .then(response => {
@@ -25,7 +31,26 @@ function FavoritePage(props) {
                     alert('Failed to get favorite TV show')
                 }
             })
-    }, [])
+    }
+
+    //Remove TV SHow Button
+    const onClickRemove = (tvShowID) => {
+
+        const variables = {
+            tvShowID: tvShowID,
+            userFrom: localStorage.getItem('userId')
+        }
+
+        Axios.post('/api/favorite/removeFromFavorite', variables)
+            .then(response => {
+                if(response.data.success) {
+                    fetchTVShows()
+                } else {
+                     alert('Failed to remove from Favorite List')
+                }
+            })
+
+        }
 
     //Rendering of Favorite table list
     const renderTableBody = FavoriteTVShows.map((tvShow, index) => {
@@ -45,7 +70,7 @@ function FavoritePage(props) {
         <td>{tvShow.tvShowName}</td>
         </Popover>
         <td><a href={tvShow.tvShowHomepage} target="_blank" rel="noopener noreferrer">{tvShow.tvShowHomepage}</a></td>
-        <td><Button>Remove from Favorites</Button></td> 
+        <td><Button onClick={() => onClickRemove(tvShow.tvShowID)}>Remove from Favorites</Button></td> 
 
         </tr>
 

@@ -59,7 +59,7 @@ function FavoriteButton(props) {
                     setfavoriteNumber(favoriteNumber + 1)
                     setfavoriteSelect(!favoriteSelect)
                 } else {
-                     alert('Failed to add to Favorite List')
+                     alert('Login to add TV Show to Favorite List')
                 }
             })
         }
@@ -68,7 +68,7 @@ function FavoriteButton(props) {
 
     return (
         <div>
-            <Button onClick={onClickFavorite} > {favoriteSelect ? " Remove from Favorite List " : " Add to Favorite List "} {favoriteNumber}</Button>
+            <Button onClick={onClickFavorite} > {favoriteSelect ? " Remove from Favorite List " : " Add to Favorite List "}</Button>
         </div>
     )
 }
