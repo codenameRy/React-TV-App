@@ -51,7 +51,7 @@ app.use(function(req, res, next) {
   // res.header("Access-Control-Allow-Origin", req.headers.origin);
   res.header("Access-Control-Allow-Credentials", true);
   res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
-  res.header("Access-Control-Allow-Headers", 'Origin,X-Requested-With,Content-Type,Accept');
+  res.header("Access-Control-Allow-Headers", 'Origin,X-Requested-With,X-HTTP-Method-Override,Content-Type,Accept');
   next();
 });
 
@@ -59,11 +59,11 @@ app.use(function(req, res, next) {
 //   // Handle the get for this route
 // });
 
-app.post('/api/favorite', function(req, res, next) {
-  res.send(
-    `I received your POST request. This is what you sent me: ${req.body.post}`,
-  );
-});
+// app.post('/api/favorite', function(req, res, next) {
+//   res.send(
+//     `I received your POST request. This is what you sent me: ${req.body.post}`,
+//   );
+// });
 
 app.use('/api/users', require('./routes/users'));
 app.use("/api/favorite", require("./routes/favorite"));
