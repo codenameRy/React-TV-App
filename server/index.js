@@ -81,7 +81,7 @@ if (process.env.NODE_ENV === "production") {
 
   // index.html for all page routes    html or routing and naviagtion
   app.get('*', function (req, res) {
-    const index = path.join(__dirname, 'build', 'index.html');
+    const index = path.resolve(__dirname, 'build', 'index.html');
     res.sendFile(index);
   });
 
