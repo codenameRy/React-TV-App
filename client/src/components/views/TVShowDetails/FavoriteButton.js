@@ -17,7 +17,7 @@ function FavoriteButton(props) {
 
     useEffect(() => {
 
-        Axios.post('/api/favorite/favoriteNumber', variable) //localhost: 5000
+        Axios.post('/api/favorite/favoriteNumber', variable) //localhost:5000
         .then(response => {
             if(response.data.success) {
                 setfavoriteNumber(response.data.favoriteNumber)
